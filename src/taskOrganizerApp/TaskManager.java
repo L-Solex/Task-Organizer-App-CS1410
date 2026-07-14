@@ -6,4 +6,13 @@ import java.util.List;
 public class TaskManager {
 	private List<Category> categoryList = new ArrayList<>();
 	private Trash trash;
+	
+	/**
+	 * @return the categoryList
+	 */
+	public List<Category> getCategories() {
+		return categoryList;
+	}
+	
+	
 }
