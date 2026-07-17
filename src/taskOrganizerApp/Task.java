@@ -3,81 +3,133 @@ package taskOrganizerApp;
 import java.time.LocalDateTime;
 
 public class Task {
-	private String title;
 	private Category category;
+	private String title;
 	private Boolean isComplete;
 	private LocalDateTime dueDate;
 	private String note;
 	
 	/**
-	 * @return the title
+	 * Initializes a Task with a Category and a Title.
+	 * 
+	 * @param category the Category the task is associated with
+	 * @param title the name of the specific task
 	 */
-	public String getTitle() {
-		return title;
-	}
-	
-	/**
-	 * @param title the title to set
-	 */
-	public void setTitle(String title) {
+	Task(Category category, String title) {
+		this.category = category;
 		this.title = title;
 	}
 	
 	/**
-	 * @return the category
+	 * Returns the Category the Task is associated with.
+	 * 
+	 * @return the Category the Task is associated with
 	 */
 	public Category getCategory() {
 		return category;
 	}
 	
 	/**
-	 * @param category the category to set
+	 * Returns the title associated with the Task.
+	 * 
+	 * @return the title associated with the Task
 	 */
-	public void setCategory(Category category) {
-		this.category = category;
+	public String getTitle() {
+		return title;
 	}
 	
 	/**
-	 * @return the isComplete
+	 * Returns the completion status of the Task.
+	 * 
+	 * @return the completion status of the Task
 	 */
 	public Boolean getIsComplete() {
 		return isComplete;
 	}
 	
 	/**
-	 * @param isComplete the isComplete to set
-	 */
-	public void setIsComplete(Boolean isComplete) {
-		this.isComplete = isComplete;
-	}
-	
-	/**
-	 * @return the dueDate
+	 * Returns the dueDate associated with the Task.
+	 * 
+	 * @return the dueDate associated with the Task
 	 */
 	public LocalDateTime getDueDate() {
 		return dueDate;
 	}
 	
 	/**
-	 * @param dueDate the dueDate to set
-	 */
-	public void setDueDate(LocalDateTime dueDate) {
-		this.dueDate = dueDate;
-	}
-	
-	/**
-	 * @return the note
+	 * Returns the note associated with the Task.
+	 * 
+	 * @return the note associated with the Task
 	 */
 	public String getNote() {
 		return note;
 	}
 	
 	/**
-	 * @param note the note to set
+	 * Sets the Category the Task is associated with.
+	 * 
+	 * @param category the category a Task is associated with
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
+	/**
+	 * Sets the title associated with the Task to the title specified 
+	 * in the parameter field.
+	 * 
+	 * @param title the title of a Task
+	 */
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	/**
+	 * Sets whether a Task has or has not been completed.
+	 * 
+	 * @param isComplete the completion status of a Task
+	 */
+	public void setComplete(Boolean isComplete) {
+		this.isComplete = isComplete;
+	}
+	
+	/**
+	 * Sets the dueDate associated with the Task to the LocalDateTime specified 
+	 * in the parameter field.
+	 * 
+	 * @param dueDate the dueDate associated with a Task
+	 */
+	public void setDueDate(LocalDateTime dueDate) {
+		this.dueDate = dueDate;
+	}
+	
+	/**
+	 * Sets the note associated with the Task to the text in the parameter field.
+	 * 
+	 * @param note the note associated with a Task
 	 */
 	public void setNote(String note) {
 		this.note = note;
 	}
+	
+	/**
+	 * Toggles whether a Task is complete.
+	 */
+	public void toggleComplete() {
+		//TODO
+	}
+
+	/**
+	 * Returns a string in the following format:<br>
+	 * TODO
+	 */
+	@Override
+	public String toString() {
+		return "Task [category=" + category + ", title=" + title + ", isComplete=" + isComplete + ", dueDate=" + dueDate
+				+ ", note=" + note + "]"; //TODO
+	}
+	
+	
 	
 	
 }
