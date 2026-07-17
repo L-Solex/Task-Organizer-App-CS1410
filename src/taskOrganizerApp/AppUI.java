@@ -16,6 +16,10 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
+/**
+ * TODO
+ * @author ATra + MSnooks
+ */
 public class AppUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
@@ -86,7 +90,5 @@ public class AppUI extends JFrame {
 		JPanel taskCategories = new JPanel();
 		contentPane.add(taskCategories, BorderLayout.CENTER);
 		taskCategories.setLayout(new GridLayout(1, 0, 0, 0));
-
 	}
-
 }
