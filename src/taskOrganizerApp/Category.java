@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Category {
 	private String title;
-	private List<Task> activeTasks = new ArrayList<>();
+	private ArrayList<Task> activeTasks = new ArrayList<>();
 	
 	/**
 	 * @param title
@@ -24,9 +24,28 @@ public class Category {
 	/**
 	 * @return the activeTasks
 	 */
-	public List<Task> getTasks() {
+	public ArrayList<Task> getTasks() {
 		return activeTasks;
 	}
+	
+	public void setTitle(String title) {
+		//TODO
+	}
+	
+	public void addTask(Task task) {
+		//TODO
+	}
+	
+	public void removeTask(Task task) {
+		//TODO
+	}
+
+	@Override
+	public String toString() {
+		return "Category [title=" + title + ", activeTasks=" + activeTasks + "]"; //TODO
+	}
+	
+	
 	
 	
 }
