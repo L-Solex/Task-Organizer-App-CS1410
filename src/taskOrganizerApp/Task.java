@@ -2,6 +2,11 @@ package taskOrganizerApp;
 
 import java.time.LocalDateTime;
 
+/**
+ * TODO
+ * 
+ * @author ATra + MSnooks
+ */
 public class Task {
 	private Category category;
 	private String title;
@@ -127,9 +132,5 @@ public class Task {
 	public String toString() {
 		return "Task [category=" + category + ", title=" + title + ", isComplete=" + isComplete + ", dueDate=" + dueDate
 				+ ", note=" + note + "]"; //TODO
-	}
-	
-	
-	
-	
+	}	
 }

@@ -3,16 +3,20 @@ package taskOrganizerApp;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * TODO
+ * @author ATra + MSnooks
+ */
 public class Trash {
-	private ArrayList<Task> deletedTasks = new ArrayList<>();
+	private ArrayList<Task> deletedTasks;
 	
 	/**
-	 * Initializes the trash can.
+	 * Initializes the trash can with an empty ArrayList of tasks.
 	 * 
-	 * @param deletedTasks a list containing tasks to be deleted or restored
+	 * @param deletedTasks an ArrayList containing tasks to be deleted or restored
 	 */
-	Trash(ArrayList<Task> deletedTasks) {
-		this.deletedTasks = deletedTasks;
+	Trash() {
+		this.deletedTasks = new ArrayList<Task>();
 	}
 	
 	/**
@@ -24,16 +28,27 @@ public class Trash {
 		return deletedTasks;
 	}
 	
+	/**
+	 * TODO
+	 * @param task
+	 * @return
+	 */
 	public Task restoreTask(Task task) {
 		return deletedTasks.get(0); //TODO
 	}
 	
+	/**
+	 * TODO
+	 * @param task
+	 */
 	public void removeTask(Task task) {
 		//TODO
 	}
 	
+	/**
+	 * TODO
+	 */
 	public void removeAllTasks() {
 		//TODO
 	}
 }
-
