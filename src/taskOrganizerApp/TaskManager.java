@@ -72,6 +72,13 @@ public class TaskManager {
 		this.categoryList.remove(getCategory(title));
 		System.out.println(String.format("Category \"%s\" deleted.", title));
 	}
+	
+	public void addTaskToCategory(Category category, Task task) {
+		category.addTask(new Task(category, task.getTitle()));
+		System.out.println(String.format("DEBUG: Task \"%s\" added to category \"%s\"",
+				task.getTitle(), category.getTitle()));
+		}
+	
 	/**
 	 *TODO
 	 * @param category

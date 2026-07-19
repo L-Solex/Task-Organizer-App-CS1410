@@ -26,6 +26,47 @@ public class Task {
 	}
 	
 	/**
+	 * Initializes a Task with a Category, Title, and DueDate.
+	 * 
+	 * @param category the Category the task is associated with
+	 * @param title the name of the specific task
+	 * @param dueDate the dueDate of the task
+	 */
+	Task(Category category, String title, LocalDateTime dueDate) {
+		this.category = category;
+		this.title = title;
+		this.dueDate = dueDate;
+	}
+	
+	/**
+	 * Initializes a Task with a Category, Title, and note.
+	 * 
+	 * @param category the Category the task is associated with
+	 * @param title the name of the specific task
+	 * @param note the note associated with the task
+	 */
+	Task(Category category, String title, String note) {
+		this.category = category;
+		this.title = title;
+		this.note = note;
+	}
+	
+	/**
+	 * Initializes a Task with a Category, Title, DueDate, and note.
+	 * 
+	 * @param category the Category the task is associated with
+	 * @param title the name of the specific task
+	 * @param dueDate the dueDate of the task
+	 * @param note the note associated with the task
+	 */
+	Task(Category category, String title, LocalDateTime dueDate, String note) {
+		this.category = category;
+		this.title = title;
+		this.dueDate = dueDate;
+		this.note = note;
+	}
+	
+	/**
 	 * Returns the Category the Task is associated with.
 	 * 
 	 * @return the Category the Task is associated with
@@ -130,7 +171,6 @@ public class Task {
 	 */
 	@Override
 	public String toString() {
-		return "Task [category=" + category + ", title=" + title + ", isComplete=" + isComplete + ", dueDate=" + dueDate
-				+ ", note=" + note + "]"; //TODO
+		return String.format("%s | Due date: %s  | Note: %s", this.getTitle(), this.getDueDate(), this.getNote()); 
 	}	
 }
