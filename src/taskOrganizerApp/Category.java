@@ -46,7 +46,7 @@ public class Category {
 	* @return the corresponding Task
 	* @throws IllegalArgumentException if the Task requested does not exist within
 	* the ArrayList containing all tasks
-	*/ 
+	*/
 	Task getTask(String tTitle) {
 		for(Task task : this.activeTasks) {
 			if (task.getTitle().equals(activeTasks)) {
@@ -56,6 +56,7 @@ public class Category {
 		}
 		throw new IllegalArgumentException(String.format("Category %s does not exist", tTitle));
 	}
+	
 	
 	/**
 	 * TODO
@@ -70,8 +71,7 @@ public class Category {
 	 * @param task
 	 */
 	public void addTask(Task task) {
-		//TODO
-	}
+		this.activeTasks.add(task);	}
 	
 	/**
 	 * TODO
@@ -91,6 +91,6 @@ public class Category {
 	 */
 	@Override
 	public String toString() {
-		return String.format("%nCategory: %s%nTasks: %s%n", title, activeTasks); //TODO
+		return String.format("%nCategory: %s%nTasks: %s%n", title, activeTasks);
 	}
 }
