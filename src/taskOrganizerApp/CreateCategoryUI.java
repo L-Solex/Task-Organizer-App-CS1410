@@ -5,6 +5,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -24,14 +25,15 @@ public class CreateCategoryUI extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField inputCategoryName;
-	private static TaskManager taskManager;
+	private static TaskManager taskManager = new TaskManager();
+	private static AppUI mainWindow;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			CreateCategoryUI dialog = new CreateCategoryUI(taskManager);
+			CreateCategoryUI dialog = new CreateCategoryUI(taskManager, mainWindow);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -42,8 +44,10 @@ public class CreateCategoryUI extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public CreateCategoryUI( TaskManager taskManager) {
+	public CreateCategoryUI(TaskManager taskManager, AppUI mainWindow) {
 		CreateCategoryUI.taskManager = taskManager;
+		//JFrame mainApp = mainWindow;
+		CreateCategoryUI.mainWindow = mainWindow;
 		
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -71,6 +75,9 @@ public class CreateCategoryUI extends JDialog {
 						
 						if (!categoryTitle.isEmpty()) {
 							taskManager.createNewCategory(newCategory);
+							CreateCategoryUI.mainWindow.createNewCategory();
+							//mainWindow.getContentPane().revalidate();
+							//mainWindow.getContentPane().repaint();
 							dispose();
 						}
 						else {
