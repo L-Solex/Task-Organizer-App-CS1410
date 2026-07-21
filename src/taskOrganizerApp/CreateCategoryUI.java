@@ -46,7 +46,6 @@ public class CreateCategoryUI extends JDialog {
 	 */
 	public CreateCategoryUI(TaskManager taskManager, AppUI mainWindow) {
 		CreateCategoryUI.taskManager = taskManager;
-		//JFrame mainApp = mainWindow;
 		CreateCategoryUI.mainWindow = mainWindow;
 		
 		setBounds(100, 100, 450, 300);
@@ -75,9 +74,7 @@ public class CreateCategoryUI extends JDialog {
 						
 						if (!categoryTitle.isEmpty()) {
 							taskManager.createNewCategory(newCategory);
-							CreateCategoryUI.mainWindow.createNewCategory();
-							//mainWindow.getContentPane().revalidate();
-							//mainWindow.getContentPane().repaint();
+							CreateCategoryUI.mainWindow.createNewCategory(newCategory);
 							dispose();
 						}
 						else {
