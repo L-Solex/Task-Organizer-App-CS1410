@@ -1,7 +1,6 @@
 package taskOrganizerApp;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * TODO
@@ -31,7 +30,7 @@ public class Category {
 	}
 
 	/**
-	 * Retuns the ArrayList of tasks associated with the Category.
+	 * Returns the ArrayList of tasks associated with the Category.
 	 * 
 	 * @return the ArrayList of tasks associated with the Category
 	 */

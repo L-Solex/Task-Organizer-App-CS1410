@@ -28,6 +28,8 @@ public class AppUI extends JFrame {
 	private JPanel contentPane;
 	private static TaskManager taskManager = new TaskManager();
 	private JPanel taskCategories = new JPanel();
+	private AppUI mainApp = this;
+	private Category defaultCategory = new Category("default");
 
 	/**
 	 * Launch the application.
@@ -52,7 +54,7 @@ public class AppUI extends JFrame {
 		setPreferredSize(new Dimension(710, 600));
 		setResizable(false);
 		AppUI.taskManager = taskManager;
-		AppUI main = this;
+		//AppUI mainApp = this;
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,7 +69,7 @@ public class AppUI extends JFrame {
 		JButton btnAddCategory = new JButton("+ Add Category");
 		btnAddCategory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CreateCategoryUI createCategoryUI = new CreateCategoryUI(taskManager, main);
+				CreateCategoryUI createCategoryUI = new CreateCategoryUI(taskManager, mainApp);
 				createCategoryUI.setVisible(true);
 				//getContentPane().add(createCategoryUI);
 			}
@@ -92,21 +94,24 @@ public class AppUI extends JFrame {
 		// Creates the default category panel and adds it to taskCategories.
 		JPanel taskCategoryDefault = createDefaultCategory(taskCategories);
 		
-		JButton btnAddTask = createAddTaskBtn();
-		btnAddTask.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-			}
-		});
+		JButton btnAddTask = createAddTaskBtn(defaultCategory);
+		
 		taskCategoryDefault.add(btnAddTask, BorderLayout.NORTH);
 	}
 
 	/**
 	 * @return
 	 */
-	private JButton createAddTaskBtn() {
+	private JButton createAddTaskBtn(Category category) {
 		JButton btnAddTask = new JButton("Add Task");
+		btnAddTask.setSize(new Dimension(77, 23));
 		btnAddTask.setFont(new Font("Tahoma", Font.BOLD, 20));
+		btnAddTask.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateTaskUI createTaskUI = new CreateTaskUI(taskManager, mainApp);
+				createTaskUI.setVisible(true);
+			}
+		});
 		return btnAddTask;
 	}
 
@@ -137,12 +142,12 @@ public class AppUI extends JFrame {
 		return taskCategoryDefault;
 	}
 	
-	public JPanel createNewCategory() {
+	public JPanel createNewCategory(Category category) {
 		JPanel newCategory = new JPanel();
 		taskCategories.add(newCategory);
 		newCategory.setLayout(new BorderLayout(0,0));
 		//contentPane.add(newCategory);
-		newCategory.add(createAddTaskBtn());
+		newCategory.add(createAddTaskBtn(category), BorderLayout.NORTH);
 		contentPane.revalidate();
 		contentPane.repaint();
 		System.out.println("CREATED NEW PANEL AND ADDED IT TO TASK CATEGORIES");
